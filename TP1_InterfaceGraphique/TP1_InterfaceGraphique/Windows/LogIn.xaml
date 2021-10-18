@@ -6,7 +6,16 @@
         xmlns:local="clr-namespace:TP1_InterfaceGraphique.Windows"
         mc:Ignorable="d"
         Title="LogIn" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+    <StackPanel>
+        <RadioButton Content="Étudiant" GroupName="UserType"></RadioButton>
+        <RadioButton Content="Enseignant" GroupName="UserType"></RadioButton>
+        <Label Content="Utilisateur :"/>
+        <TextBox></TextBox>
+        <Label Content="Mot de passe :"/>
+        <TextBox></TextBox>
+        <Button Content="Se connecter">
+        </Button>
+        <Button Content="Mot de passe oublié"></Button>
+
+    </StackPanel>
 </Window>
