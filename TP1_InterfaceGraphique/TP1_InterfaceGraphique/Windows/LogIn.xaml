@@ -5,17 +5,42 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TP1_InterfaceGraphique.Windows"
         mc:Ignorable="d"
-        Title="LogIn" Height="450" Width="800">
-    <StackPanel>
-        <RadioButton Content="Étudiant" GroupName="UserType"></RadioButton>
-        <RadioButton Content="Enseignant" GroupName="UserType"></RadioButton>
-        <Label Content="Utilisateur :"/>
-        <TextBox></TextBox>
-        <Label Content="Mot de passe :"/>
-        <TextBox></TextBox>
-        <Button Content="Se connecter">
-        </Button>
-        <Button Content="Mot de passe oublié"></Button>
+        Title="Connexion au Cégep de Saint-Jérôme" Height="300" Width="450"
+        ResizeMode="NoResize"
+        Style="{StaticResource DarkWindow}">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <RadioButton x:Name="StudentRdBtn" IsChecked="True" Style="{StaticResource BaseRadioButton}" Content="Étudiant" GroupName="UserType"></RadioButton>
+            <RadioButton Style="{StaticResource BaseRadioButton}" Content="Enseignant" GroupName="UserType"></RadioButton>
+        </StackPanel>
+        <Grid Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="115"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition Height="20"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Label Grid.Row="0" Grid.Column="0"  Content="Utilisateur :" Style="{StaticResource BaseLabel}" Margin="0,0,0.2,0"/>
+            <TextBox x:Name="UsernameTxtBox"  Grid.Row="0" Style="{StaticResource BaseInput}" Grid.ColumnSpan="2" Margin="115,0,0.2,0"/>
+            <Label Grid.Row="2" Grid.Column="0" Content="Mot de passe :" Style="{StaticResource BaseLabel}" Margin="0,0,0.2,0"/>
+            <PasswordBox x:Name="PasswordTxtBox" Grid.Row="2" Style="{StaticResource BasePwdInput}" Grid.ColumnSpan="2" Margin="115,0,0.2,0"/>
+        </Grid>
 
-    </StackPanel>
+
+        <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Button x:Name="LoginBtn"  Content="Se connecter" Style="{StaticResource LightButton}" Click="LoginBtn_Click">
+
+            </Button>
+            <Button Content="Mot de passe oublié" Style="{StaticResource DarkButton}"></Button>
+        </StackPanel>
+
+    </Grid>
 </Window>

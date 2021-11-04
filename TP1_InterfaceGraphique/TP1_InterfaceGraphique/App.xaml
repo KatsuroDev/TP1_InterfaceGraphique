@@ -4,6 +4,95 @@
              xmlns:local="clr-namespace:TP1_InterfaceGraphique"
              StartupUri="Windows/LogIn.xaml">
     <Application.Resources>
-         
+        <Style x:Key="DarkWindow" TargetType="{x:Type Window}">
+            <Setter Property="Background" Value="#2C2F33"/>
+            <Setter Property="FontSize" Value="16"/>
+        </Style>
+
+        <Style x:Key="BaseButton" TargetType="{x:Type Button}">
+            <Setter Property="BorderBrush" Value="White"/>
+            <Setter Property="BorderThickness" Value="4"/>
+            <Setter Property="Padding" Value="20, 10"/>
+            <Setter Property="Margin" Value="5, 5"/>
+            <Style.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="25"/>
+                </Style>
+            </Style.Resources>
+        </Style>
+
+        <Style x:Key="DarkButton" BasedOn="{StaticResource BaseButton}" TargetType="{x:Type Button}">
+            <Setter Property="Background" Value="#2C2F33"/>
+            <Setter Property="Foreground" Value="White"/>
+        </Style>
+
+        <Style x:Key="LightButton" BasedOn="{StaticResource BaseButton}" TargetType="{x:Type Button}">
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="Foreground" Value="#2C2F33"/>
+        </Style>
+
+        <Style x:Key="BaseLabel" TargetType="{x:Type Label}">
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontWeight" Value="DemiBold"/>
+            <Setter Property="HorizontalContentAlignment" Value="Right"/>
+        </Style>
+
+        <Style x:Key="BaseInput" TargetType="{x:Type TextBox}">
+            <Setter Property="Padding" Value="10, 0"/>
+            <Setter Property="Background" Value="#202124"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="HorizontalContentAlignment" Value="Left"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="MaxWidth" Value="200"/>
+            <Setter Property="MinWidth" Value="200"/>
+            <Style.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="15"/>
+                </Style>
+            </Style.Resources>
+        </Style>
+
+        <Style x:Key="BasePwdInput" TargetType="{x:Type PasswordBox}">
+            <Setter Property="Padding" Value="10, 0"/>
+            <Setter Property="Background" Value="#202124"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="HorizontalContentAlignment" Value="Left"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="MaxWidth" Value="200"/>
+            <Setter Property="MinWidth" Value="200"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type PasswordBox}">
+                        <Border x:Name="Border" CornerRadius="15">
+                            <Border.Background>
+                                <SolidColorBrush Color="#202124"></SolidColorBrush>
+                            </Border.Background>
+                            <VisualStateManager.VisualStateGroups>
+                                <VisualStateGroup x:Name="CommonStates">
+                                    <VisualState x:Name="Normal" />
+                                    <VisualState x:Name="Disabled" />
+                                    <VisualState x:Name="MouseOver" />
+                                </VisualStateGroup>
+                            </VisualStateManager.VisualStateGroups>
+                            <ScrollViewer x:Name="PART_ContentHost" />
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="BaseRadioButton" TargetType="{x:Type RadioButton}">
+            <Setter Property="BorderBrush" Value="White"/>
+            <Setter Property="BorderThickness" Value="4"/>
+            <Setter Property="Padding" Value="20, 10"/>
+            <Setter Property="Margin" Value="5, 5"/>
+            <Style.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="25"/>
+                </Style>
+            </Style.Resources>
+        </Style>
     </Application.Resources>
 </Application>

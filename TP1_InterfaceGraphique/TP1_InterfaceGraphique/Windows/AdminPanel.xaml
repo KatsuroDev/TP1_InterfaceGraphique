@@ -1,0 +1,29 @@
+﻿<Window x:Class="TP1_InterfaceGraphique.Windows.AdminPanel"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TP1_InterfaceGraphique.Windows"
+        mc:Ignorable="d"
+        Title="Administration Omnivox" Height="325" Width="325"
+        Style="{StaticResource DarkWindow}">
+    <StackPanel VerticalAlignment="Center" Margin="20,0">
+        <StackPanel VerticalAlignment="Center">
+            <StackPanel.Resources>
+                <Style BasedOn="{StaticResource LightButton}" TargetType="{x:Type Button}"/>
+            </StackPanel.Resources>
+            <Button Content="Modifier les étudiants"></Button>
+            <Button Content="Modifier les enseignants"></Button>
+            <Button Content="Modifier les horaires"></Button>
+        </StackPanel>
+
+        <Border BorderBrush="White" BorderThickness="1" Margin="10, 10">
+        </Border>
+
+        <StackPanel VerticalAlignment="Center">
+            
+            <Button Content="Quitter" Style="{StaticResource DarkButton}"></Button>
+        </StackPanel>
+        
+    </StackPanel>
+</Window>
