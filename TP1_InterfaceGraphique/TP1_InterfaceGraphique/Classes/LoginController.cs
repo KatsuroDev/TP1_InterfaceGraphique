@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TP1_InterfaceGraphique.Windows;
 
 namespace TP1_InterfaceGraphique.Classes
 {
@@ -10,12 +11,36 @@ namespace TP1_InterfaceGraphique.Classes
     {
         public static User ActiveUser;
 
-        public static bool TryLogin(int userId, string password, bool isStudent)
+        public static bool TryLogin(string usernameInput, string password, bool isStudent)
         {
+            if(usernameInput == "admin" && password == "admin")
+            {
+                var adminUser = new Admin();
+                adminUser.Id = 0000;
+                adminUser.FirstName = "admin";
+                adminUser.LastName = "admin";
+                adminUser.Password = "admin";
+                ActiveUser = adminUser;
+                return true;
+            }
+
+            int userId;
+            if (!Int32.TryParse(usernameInput, out userId))
+            {
+                return false;
+            }
+
             if (isStudent)
                 return TryLoginStudent(userId, password);
             else
                 return TryLoginTeacher(userId, password);
+        }
+
+        public static void Disconnect()
+        {
+            ActiveUser = null;
+            var loginWindow = new LogIn();
+            loginWindow.Show();
         }
 
         private static bool TryLoginStudent(int userId, string password)

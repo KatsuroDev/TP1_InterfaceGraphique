@@ -24,9 +24,14 @@ namespace TP1_InterfaceGraphique.Windows
         {
             InitializeComponent();
         }
-        private void LoginBtn_Click(object sender, RoutedEventArgs e)
+        private void Button_Click(object sender, RoutedEventArgs e)
         {
-            
+            if(sender == ForgottenPasswordBtn)
+            {
+                MessageBox.Show("TODO", "TODO", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
             bool? isStudent = StudentRdBtn.IsChecked;
 
             String usernameInput = UsernameTxtBox.Text;
@@ -36,18 +41,26 @@ namespace TP1_InterfaceGraphique.Windows
             if (isStudent == null)
                 throw new NullReferenceException();
 
-
-            int userId;
-            if (!Int32.TryParse(usernameInput, out userId))
+            if (!LoginController.TryLogin(usernameInput, passwordInput, isStudent.Value))
             {
-                MessageBox.Show($"L'identifiant ou le mot de passe est invalide.", "Erreur d'authentification", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("L'identifiant ou le mot de passe est invalide.", "Erreur d'authentification", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
 
-
-            if (!LoginController.TryLogin(userId, passwordInput, isStudent.Value))
+            if (LoginController.ActiveUser is Teacher)
             {
-                MessageBox.Show($"L'identifiant ou le mot de passe est invalide.", "Erreur d'authentification", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("TODO", "TODO", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            else if (LoginController.ActiveUser is Student)
+            {
+                MessageBox.Show("TODO", "TODO", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            else if (LoginController.ActiveUser is Admin)
+            {
+                var adminpanel = new AdminPanel();
+                adminpanel.Show();
+                this.Close();
+                
             }
         }
     }

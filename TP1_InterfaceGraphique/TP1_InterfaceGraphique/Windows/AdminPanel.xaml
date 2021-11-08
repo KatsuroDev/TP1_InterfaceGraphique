@@ -9,20 +9,17 @@
         Style="{StaticResource DarkWindow}">
     <StackPanel VerticalAlignment="Center" Margin="20,0">
         <StackPanel VerticalAlignment="Center">
-            <StackPanel.Resources>
-                <Style BasedOn="{StaticResource LightButton}" TargetType="{x:Type Button}"/>
-            </StackPanel.Resources>
-            <Button Content="Modifier les étudiants"></Button>
-            <Button Content="Modifier les enseignants"></Button>
-            <Button Content="Modifier les horaires"></Button>
+            <Button x:Name="StudentsBtn" Click="Button_Click" Content="Modifier les étudiants" Template="{DynamicResource LightButton}"></Button>
+            <Button x:Name="TeachersBtn" Click="Button_Click" Content="Modifier les enseignants" Template="{DynamicResource LightButton}"></Button>
+            <Button x:Name="ScheduleBtn" Click="Button_Click" Content="Modifier les horaires" Template="{DynamicResource LightButton}"></Button>
         </StackPanel>
 
         <Border BorderBrush="White" BorderThickness="1" Margin="10, 10">
         </Border>
 
         <StackPanel VerticalAlignment="Center">
-            
-            <Button Content="Quitter" Style="{StaticResource DarkButton}"></Button>
+
+            <Button x:Name="QuitBtn" Content="Quitter" Template="{DynamicResource DarkButton}" Click="Button_Click"></Button>
         </StackPanel>
         
     </StackPanel>

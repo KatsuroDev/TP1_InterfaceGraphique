@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using TP1_InterfaceGraphique.Classes;
 
 namespace TP1_InterfaceGraphique.Windows
 {
@@ -22,6 +23,29 @@ namespace TP1_InterfaceGraphique.Windows
         public AdminPanel()
         {
             InitializeComponent();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            if(sender == QuitBtn)
+            {
+                LoginController.Disconnect();
+                this.Close();
+            }
+            else if(sender == ScheduleBtn)
+            {
+                MessageBox.Show("TODO", "TODO", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            else if(sender == TeachersBtn)
+            {
+                MessageBox.Show("TODO", "TODO", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            else if(sender == StudentsBtn)
+            {
+                MessageBox.Show("TODO", "TODO", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+
+
         }
     }
 }

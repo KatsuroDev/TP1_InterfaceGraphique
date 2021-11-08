@@ -15,8 +15,8 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-            <RadioButton x:Name="StudentRdBtn" IsChecked="True" Style="{StaticResource BaseRadioButton}" Content="Étudiant" GroupName="UserType"></RadioButton>
-            <RadioButton Style="{StaticResource BaseRadioButton}" Content="Enseignant" GroupName="UserType"></RadioButton>
+            <RadioButton x:Name="StudentRdBtn" IsChecked="True" Content="Étudiant" GroupName="UserType" Template="{DynamicResource RadioButtonLeft}" Padding="10" VerticalContentAlignment="Center"></RadioButton>
+            <RadioButton Template="{DynamicResource RadioButtonRight}" Content="Enseignant" GroupName="UserType" Padding="10" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"></RadioButton>
         </StackPanel>
         <Grid Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">
             <Grid.ColumnDefinitions>
@@ -29,17 +29,17 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
             <Label Grid.Row="0" Grid.Column="0"  Content="Utilisateur :" Style="{StaticResource BaseLabel}" Margin="0,0,0.2,0"/>
-            <TextBox x:Name="UsernameTxtBox"  Grid.Row="0" Style="{StaticResource BaseInput}" Grid.ColumnSpan="2" Margin="115,0,0.2,0"/>
+            <TextBox x:Name="UsernameTxtBox"  Grid.Row="0" Template="{DynamicResource InputBase}" Grid.ColumnSpan="2" Margin="115,0,0.2,0" />
             <Label Grid.Row="2" Grid.Column="0" Content="Mot de passe :" Style="{StaticResource BaseLabel}" Margin="0,0,0.2,0"/>
-            <PasswordBox x:Name="PasswordTxtBox" Grid.Row="2" Style="{StaticResource BasePwdInput}" Grid.ColumnSpan="2" Margin="115,0,0.2,0"/>
+            <PasswordBox x:Name="PasswordTxtBox" Grid.Row="2" Template="{DynamicResource PwdBase}" Grid.ColumnSpan="2" Margin="115,0,0.2,0"/>
         </Grid>
 
 
         <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-            <Button x:Name="LoginBtn"  Content="Se connecter" Style="{StaticResource LightButton}" Click="LoginBtn_Click">
+            <Button x:Name="LoginBtn"  Content="Se connecter" Template="{DynamicResource LightButton}" Click="Button_Click">
 
             </Button>
-            <Button Content="Mot de passe oublié" Style="{StaticResource DarkButton}"></Button>
+            <Button x:Name="ForgottenPasswordBtn" Content="Mot de passe oublié" Template="{DynamicResource DarkButton}" Click="Button_Click"></Button>
         </StackPanel>
 
     </Grid>
