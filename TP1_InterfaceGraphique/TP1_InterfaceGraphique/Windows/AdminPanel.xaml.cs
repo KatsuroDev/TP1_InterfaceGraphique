@@ -38,11 +38,13 @@ namespace TP1_InterfaceGraphique.Windows
             }
             else if(sender == TeachersBtn)
             {
-                MessageBox.Show("TODO", "TODO", MessageBoxButton.OK, MessageBoxImage.Error);
+                var window = new TeachersList();
+                window.Show();
             }
             else if(sender == StudentsBtn)
             {
-                MessageBox.Show("TODO", "TODO", MessageBoxButton.OK, MessageBoxImage.Error);
+                var window = new StudentsList();
+                window.Show();
             }
 
 

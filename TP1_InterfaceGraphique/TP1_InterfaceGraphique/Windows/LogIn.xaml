@@ -7,7 +7,8 @@
         mc:Ignorable="d"
         Title="Connexion au Cégep de Saint-Jérôme" Height="300" Width="450"
         ResizeMode="NoResize"
-        Style="{StaticResource DarkWindow}">
+        Style="{StaticResource DarkWindow}"
+        KeyDown="Window_KeyDown">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>

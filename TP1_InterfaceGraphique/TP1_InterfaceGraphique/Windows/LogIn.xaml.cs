@@ -24,6 +24,7 @@ namespace TP1_InterfaceGraphique.Windows
         {
             InitializeComponent();
         }
+
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             if(sender == ForgottenPasswordBtn)
@@ -31,7 +32,11 @@ namespace TP1_InterfaceGraphique.Windows
                 MessageBox.Show("TODO", "TODO", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
+            Login();
+        }
 
+        private void Login()
+        {
             bool? isStudent = StudentRdBtn.IsChecked;
 
             String usernameInput = UsernameTxtBox.Text;
@@ -60,7 +65,15 @@ namespace TP1_InterfaceGraphique.Windows
                 var adminpanel = new AdminPanel();
                 adminpanel.Show();
                 this.Close();
-                
+
+            }
+        }
+
+        private void Window_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                Login();
             }
         }
     }
